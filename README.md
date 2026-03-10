@@ -8,7 +8,7 @@ Without GoTunni, every conversation starts from scratch — you re-explain your 
 
 | Without | With GoTunni |
 |---------|-------------|
-| "Use private fields with getters..." | Just say `/gotunni code` |
+| "Use private fields with getters..." | Just say `/gotunni:code` |
 | "Check ACL first, then UoW..." | Already enforced |
 | "Review for security, performance..." | 7-layer review built-in |
 | "Use table-driven tests with gomock..." | Auto-generated |
@@ -18,21 +18,21 @@ Without GoTunni, every conversation starts from scratch — you re-explain your 
 
 | Command | What it does |
 |---------|-------------|
-| `/gotunni create-new-service` | Scaffolds a complete Go microservice in 8 phases: domain → app → infra → API → docs |
-| `/gotunni plan` | Analyzes requirements and generates a phased implementation plan with research |
-| `/gotunni code` | Implements entities, usecases, handlers following strict Clean Architecture |
-| `/gotunni review` | 7-layer enterprise code review: architecture, security, performance, resilience, observability, database, testing |
-| `/gotunni test` | Generates table-driven tests with gomock, testify. Targets: domain 100%, usecases 90%+ |
-| `/gotunni brainstorm` | Interactive architecture co-design with 4 mandatory user checkpoints |
+| `/gotunni:create-new-service` | Scaffolds a complete Go microservice in 8 phases: domain → app → infra → API → docs |
+| `/gotunni:plan` | Analyzes requirements and generates a phased implementation plan with research |
+| `/gotunni:code` | Implements entities, usecases, handlers following strict Clean Architecture |
+| `/gotunni:review` | 7-layer enterprise code review: architecture, security, performance, resilience, observability, database, testing |
+| `/gotunni:test` | Generates table-driven tests with gomock, testify. Targets: domain 100%, usecases 90%+ |
+| `/gotunni:brainstorm` | Interactive architecture co-design with 4 mandatory user checkpoints |
 
 ### Variants
 
 Append `:parallel` to run with multiple agents simultaneously:
-- `/gotunni code:parallel` — parallel implementation across layers
-- `/gotunni review:parallel` — 4 agents reviewing different layers concurrently
-- `/gotunni test:parallel` — parallel test generation per layer
+- `/gotunni:code:parallel` — parallel implementation across layers
+- `/gotunni:review:parallel` — 4 agents reviewing different layers concurrently
+- `/gotunni:test:parallel` — parallel test generation per layer
 
-Other variants: `:fix` (minimal bug fix), `:refactor` (preserve behavior), `:hard` (deep planning with research)
+Other variants: `/gotunni:code:fix` (minimal bug fix), `/gotunni:code:refactor` (preserve behavior), `/gotunni:plan:hard` (deep planning with research)
 
 ## Stack
 
@@ -84,7 +84,7 @@ GoTunni embeds **44 non-negotiable rules** and a **compliance profile** that Cla
 
 ## 7-Layer Code Review
 
-When you run `/gotunni review`, Claude evaluates your code across:
+When you run `/gotunni:review`, Claude evaluates your code across:
 
 1. **Architecture** — Clean Arch boundaries, entity encapsulation, SQLC patterns
 2. **Security** — ACL checks, auth flow, error sanitization, input validation
@@ -125,16 +125,16 @@ git pull origin main
 After installation, just use any command in Claude Code:
 
 ```
-> /gotunni plan
+> /gotunni:plan
 > Add a CreateSubscription usecase to the payment service
 
-> /gotunni code
+> /gotunni:code
 > Implement the subscription entity with monthly/yearly periodicity
 
-> /gotunni test
+> /gotunni:test
 > Write tests for the subscription domain entity
 
-> /gotunni review
+> /gotunni:review
 > Review the last 3 commits on feat/payment-asaas
 ```
 
