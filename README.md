@@ -58,7 +58,7 @@ Other variants: `/gotunni:code:fix` (minimal bug fix), `/gotunni:code:refactor` 
 
 ## PUA Protocol (Mandatory)
 
-Every GoTunni process runs under the [PUA skill](https://github.com/anthropics/pua-skills) — a pressure-escalation engine that prevents lazy behavior, empty claims, and passive debugging.
+Every GoTunni process runs under the [PUA skill](https://openpua.ai/) — a pressure-escalation engine that prevents lazy behavior, empty claims, and passive debugging.
 
 **What it enforces:**
 - `/pua` activates before any mode executes — no exceptions
