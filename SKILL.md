@@ -32,7 +32,7 @@ Full-cycle enterprise development for Go microservices in the tunni-services mon
 **Every gotunni process MUST activate `/pua` skill.** No exceptions. No mode is exempt.
 
 ### Activation Rules
-1. **On session start**: Load PUA skill before any gotunni mode executes
+1. **On session start**: Run `bash scripts/ensure-pua-installed.sh` to verify PUA is installed (auto-clones if missing). Then load PUA skill
 2. **On agent spawn**: Every subagent prompt MUST include: `Activate /pua skill. Load PUA methodology (3 iron rules + 5-step method + proactivity checklist). Apply pressure escalation on failures.`
 3. **On failure**: PUA pressure escalation activates automatically (L1→L4)
 4. **On completion**: PUA proactivity checklist is mandatory before declaring "done"
