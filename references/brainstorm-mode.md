@@ -3,6 +3,9 @@
 ## Trigger
 Architecture decisions, entity modeling, cross-service design, gRPC API design, event patterns, refactoring strategies, performance optimization.
 
+## PUA Enforcement
+Activate `/pua` skill. Explore at least 3 fundamentally different approaches. Stuck in same reasoning loop = L1. Search before opining (use search tools, don't guess).
+
 ## Before Starting
 Read SKILL.md. Read architecture-patterns.md, directory-structure.md. Read relevant service CLAUDE.md files. Read timekeeper as reference.
 

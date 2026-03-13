@@ -56,6 +56,29 @@ Other variants: `/gotunni:code:fix` (minimal bug fix), `/gotunni:code:refactor` 
 - **HTTP-only** — with Swagger/Scalar documentation (public-facing APIs)
 - **Dual-protocol** — gRPC + HTTP Chi in the same binary (e.g. timekeeper)
 
+## PUA Protocol (Mandatory)
+
+Every GoTunni process runs under the [PUA skill](https://github.com/anthropics/pua-skills) — a pressure-escalation engine that prevents lazy behavior, empty claims, and passive debugging.
+
+**What it enforces:**
+- `/pua` activates before any mode executes — no exceptions
+- Every subagent spawned includes PUA methodology in its prompt
+- Failure triggers automatic pressure escalation (L1 mild → L4 hardcore)
+- Completion requires evidence (build output, test output), not just claims
+- A verification gate checklist must pass before any mode reports "done"
+
+**Per-mode enforcement:**
+
+| Mode | PUA Rule |
+|------|----------|
+| `plan` | No vague steps — concrete inputs, outputs, validation criteria required |
+| `code` | `go build` after every module, output pasted as proof |
+| `code:fix` | Exhaust all hypotheses before asking user |
+| `test` | No mocks to cheat, no skipping failures |
+| `review` | Evidence-backed findings only, no guessing |
+| `brainstorm` | Minimum 3 fundamentally different approaches |
+| `create-new-service` | Every phase must compile, end-to-end validation at finish |
+
 ## What Claude Enforces
 
 GoTunni embeds **44 non-negotiable rules** and a **compliance profile** that Claude checks automatically:

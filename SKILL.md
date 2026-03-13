@@ -27,12 +27,45 @@ Full-cycle enterprise development for Go microservices in the tunni-services mon
 - "Configure the Kubernetes deployment"
 - "Write a Python ETL script"
 
+## PUA Protocol (MANDATORY — ALL MODES)
+
+**Every gotunni process MUST activate `/pua` skill.** No exceptions. No mode is exempt.
+
+### Activation Rules
+1. **On session start**: Load PUA skill before any gotunni mode executes
+2. **On agent spawn**: Every subagent prompt MUST include: `Activate /pua skill. Load PUA methodology (3 iron rules + 5-step method + proactivity checklist). Apply pressure escalation on failures.`
+3. **On failure**: PUA pressure escalation activates automatically (L1→L4)
+4. **On completion**: PUA proactivity checklist is mandatory before declaring "done"
+
+### Integration Per Mode
+| Mode | PUA Enforcement |
+|------|----------------|
+| **plan** | No vague plans. Every phase needs concrete steps, inputs, outputs, validation. Granularity too coarse = L2 |
+| **code** | Build after every module. No "I think it works" — run `go build`, paste output. Empty claims = L2 |
+| **code:fix** | Exhaust all hypotheses before asking user. Giving up without trying = L3 |
+| **test** | No mocks to cheat. No skipping failing tests. Failed test = new hypothesis, not surrender |
+| **review** | Flag real issues, not cosmetics. Verify findings with evidence. Guessing without searching = L2 |
+| **brainstorm** | Explore ≥3 fundamentally different approaches. Stuck in same loop = L1 |
+| **create-new-service** | Every phase must compile. End-to-end validation at finish. "Good enough" = L3 |
+
+### Verification Gate (ALL modes)
+Before any mode reports completion, execute this PUA-enforced checklist:
+- [ ] Code compiles? (`go build ./...` output attached)
+- [ ] Tests pass? (`go test ./...` output attached)
+- [ ] Same-module similar issues checked?
+- [ ] Upstream/downstream impact verified?
+- [ ] Edge cases covered?
+- [ ] Evidence provided, not just claims?
+
+Failure to complete this checklist activates proactivity enforcement. "You said it's done — where's the evidence?"
+
 ## Before Any Code
 
-1. Read `/home/henrique/tunni-services/apps/timekeeper/` as reference implementation
-2. Read `docs/code-standards.md` and `docs/system-architecture.md`
-3. Read service-specific `CLAUDE.md` if maintaining existing service
-4. Check existing ports: `grep -r "PORT=" apps/*/configs/.env_example`
+1. **Activate `/pua` skill** (mandatory first step)
+2. Read `/home/henrique/tunni-services/apps/timekeeper/` as reference implementation
+3. Read `docs/code-standards.md` and `docs/system-architecture.md`
+4. Read service-specific `CLAUDE.md` if maintaining existing service
+5. Check existing ports: `grep -r "PORT=" apps/*/configs/.env_example`
 
 ## Stack
 
@@ -60,14 +93,16 @@ Clean Architecture, 3 layers:
 
 ## Composite Workflows
 
+All workflows run under PUA protocol. `/pua` activates at start, persists through every phase.
+
 | Flow | Chain |
 |------|-------|
-| New service | create-new-service (all 8 phases) |
-| Feature | plan → code → test → review |
-| Bug fix | code:fix → test |
-| Review+fix | review → code:fix → test |
-| Migration | plan → code (migrations) → test |
-| Refactor | review → code:refactor → test |
+| New service | **pua** → create-new-service (all 8 phases) → pua verification gate |
+| Feature | **pua** → plan → code → test → review → pua verification gate |
+| Bug fix | **pua** → code:fix → test → pua verification gate |
+| Review+fix | **pua** → review → code:fix → test → pua verification gate |
+| Migration | **pua** → plan → code (migrations) → test → pua verification gate |
+| Refactor | **pua** → review → code:refactor → test → pua verification gate |
 
 Add `:parallel` to code/test/review for multi-agent execution. Details: `references/parallel-workflows.md`
 
@@ -85,9 +120,10 @@ Add `:parallel` to code/test/review for multi-agent execution. Details: `referen
 The orchestrator MUST output visible text to the user at every stage. Silence is unacceptable.
 
 ### When Spawning Agents
-**Before** launching agents, print a summary of what's about to happen:
+**Before** launching agents, print a summary of what's about to happen.
+**MANDATORY**: Every agent prompt MUST include PUA activation instruction.
 ```
-Launching {N} agents in parallel:
+Launching {N} agents in parallel (PUA enforced):
 - Agent A: {description}
 - Agent B: {description}
 Estimated: ~{time} per agent. I'll report as each completes.

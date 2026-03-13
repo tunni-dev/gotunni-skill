@@ -3,6 +3,9 @@
 ## Trigger
 Create new microservice from scratch in tunni-services monorepo with dual-protocol (HTTP + gRPC).
 
+## PUA Enforcement
+Activate `/pua` skill. Every phase MUST compile (`go build ./...` with output pasted). End-to-end validation mandatory at finish. "Good enough" = L3.
+
 ## Minimum Input
 - Service name (e.g., "organization", "inventory")
 - Domain description (e.g., "manages equipment inventory for companies")

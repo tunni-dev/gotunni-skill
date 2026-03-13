@@ -3,6 +3,9 @@
 ## Trigger
 Feature request, refactor, architectural change in existing service.
 
+## PUA Enforcement
+Activate `/pua` skill before planning. Plans must have concrete granularity — every phase needs inputs, outputs, validation criteria. Granularity too coarse = L2. No vague "implement feature X" steps without specifying files, patterns, and success criteria.
+
 ## Process
 
 1. **Read service context:**

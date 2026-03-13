@@ -3,6 +3,9 @@
 ## Trigger
 Write/run tests for Go service. Post-implementation or standalone testing.
 
+## PUA Enforcement
+Activate `/pua` skill. No mocks to cheat passes. No skipping failing tests. Each test failure = new hypothesis to investigate, not a reason to surrender. Run `go test -race ./... -cover` and paste output as evidence. Empty claims = L2.
+
 ## Before Starting
 Read compliance-profile.md. Read code to test. Read timekeeper tests for patterns: `apps/timekeeper/internalpkg/core/domain/entity/*_test.go`
 

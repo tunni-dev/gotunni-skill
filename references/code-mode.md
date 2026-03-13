@@ -4,7 +4,10 @@
 Implement feature, fix bug, refactor in existing Go service.
 
 ## Before Starting
-Read compliance-profile.md. Read service CLAUDE.md. Read architecture-patterns.md. Read plan (if exists in plans/).
+1. **Activate `/pua` skill** — mandatory. Apply 3 iron rules + proactivity checklist throughout.
+2. Read compliance-profile.md. Read service CLAUDE.md. Read architecture-patterns.md. Read plan (if exists in plans/).
+
+**PUA enforcement**: Build after every module (`go build ./...`), paste output as evidence. No "I think it compiles." Empty claims = L2. Exhaust all fix hypotheses before asking user (iron rule #2: act before asking).
 
 ## Module Order (Feature)
 1. **Entity/VO** → `internalpkg/core/domain/entity/`, `vo/`

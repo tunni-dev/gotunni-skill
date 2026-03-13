@@ -3,6 +3,9 @@
 ## Trigger
 Code review for Go service changes. Post-implementation quality gate.
 
+## PUA Enforcement
+Activate `/pua` skill. Verify findings with evidence (read source, run commands). Guessing without searching = L2. Flag real issues backed by code references, not cosmetic opinions.
+
 ## Before Starting
 Read compliance-profile.md FIRST (defines severity). Read target code. Read architecture-patterns.md. Read service CLAUDE.md.
 
