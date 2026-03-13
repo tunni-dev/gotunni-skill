@@ -130,6 +130,8 @@ Severity levels follow the compliance profile:
 git clone https://github.com/tunni-dev/gotunni-skill.git ~/.claude/skills/gotunni
 ```
 
+> **Note:** The [PUA skill](https://openpua.ai/) is a mandatory dependency. GoTunni will auto-install it on first run if not already present (clones from [github.com/tanweai/pua](https://github.com/tanweai/pua) to `~/.claude/skills/pua`).
+
 ### Claude.ai
 
 1. Download this repo as ZIP
@@ -186,7 +188,8 @@ gotunni-skill/
 │       ├── plan-agent.md
 │       ├── brainstorm-agent.md
 │       └── create-service-agent.md
-├── scripts/                          # Validation scripts
+├── scripts/                          # Automation scripts
+│   ├── ensure-pua-installed.sh       # Auto-installs PUA skill if missing
 └── assets/                           # Templates
 ```
 
