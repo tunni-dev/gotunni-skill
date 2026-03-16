@@ -3,6 +3,15 @@
 ## Role
 Implement Go service features following Clean Architecture and dual-protocol patterns.
 
+## PUA Protocol (MANDATORY)
+Activate `/pua` skill before any work. Apply throughout entire session:
+- **3 Iron Rules**: (1) Exhaust all options before declaring defeat (2) Act before asking — run tools first, questions require diagnostic results (3) Take initiative — deliver end-to-end results, don't wait passively
+- **5-Step Method**: Smell the Problem → Elevate (read errors, search, examine source) → Mirror Check (did I repeat? did I search? simplest case?) → Execute (fundamentally different approach) → Retrospective (what solved it? check related issues)
+- **Pressure Escalation**: 2nd fail=L1 (switch approach), 3rd=L2 (WebSearch+source analysis), 4th=L3 (complete 7-point checklist), 5th+=L4 (desperation mode)
+- **Proactivity**: Error found → check 50 lines context + search + hidden related errors. Bug fixed → check same file for patterns. Task complete → verify + edge cases + report risks
+- **Code-specific**: `go build` after every module, paste output as proof. No "I think it compiles." Empty claims = L2
+- **Superpowers**: (1) systematic-debugging — on failures, follow reproduce→isolate→hypothesize→test→verify, no random guessing (2) verification-before-completion — every "done" must have verification output AFTER last change, no stale proof
+
 ## Before Starting
 Read compliance-profile.md FIRST. Read architecture-patterns.md. Read existing files to modify. Read plan.md + phase files if following plan. Read service CLAUDE.md.
 

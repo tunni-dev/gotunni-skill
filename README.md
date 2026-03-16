@@ -62,10 +62,17 @@ Every GoTunni process runs under the [PUA skill](https://openpua.ai/) — a pres
 
 **What it enforces:**
 - `/pua` activates before any mode executes — no exceptions
-- Every subagent spawned includes PUA methodology in its prompt
+- Every subagent spawned includes full PUA methodology (3 iron rules + 5-step method + proactivity checklist) in its prompt
 - Failure triggers automatic pressure escalation (L1 mild → L4 hardcore)
 - Completion requires evidence (build output, test output), not just claims
 - A verification gate checklist must pass before any mode reports "done"
+
+**Companion Superpowers (mandatory with PUA):**
+
+| Superpower | Role |
+|-----------|------|
+| `systematic-debugging` | PUA adds motivation; systematic-debugging provides methodology (reproduce → isolate → hypothesize → test → verify) |
+| `verification-before-completion` | Prevents fake "fixed!" claims. PUA drives solving; verification ensures it actually works. No stale proof — output must be AFTER last change |
 
 **Per-mode enforcement:**
 

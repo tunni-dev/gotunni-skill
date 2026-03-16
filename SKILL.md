@@ -48,6 +48,13 @@ Full-cycle enterprise development for Go microservices in the tunni-services mon
 | **brainstorm** | Explore ≥3 fundamentally different approaches. Stuck in same loop = L1 |
 | **create-new-service** | Every phase must compile. End-to-end validation at finish. "Good enough" = L3 |
 
+### Companion Superpowers (MANDATORY with PUA)
+PUA alone motivates — these superpowers provide the methodology and verification:
+
+**systematic-debugging**: Applied on every failure. PUA drives persistence; systematic-debugging provides the structured method (reproduce → isolate → hypothesize → test → verify). No random guessing — follow the method.
+
+**verification-before-completion**: Prevents fake "fixed!" claims. Every "done" statement MUST be backed by verification output. PUA drives solving; verification ensures it actually works. No mode can report completion without passing the verification gate below.
+
 ### Verification Gate (ALL modes)
 Before any mode reports completion, execute this PUA-enforced checklist:
 - [ ] Code compiles? (`go build ./...` output attached)
@@ -56,6 +63,7 @@ Before any mode reports completion, execute this PUA-enforced checklist:
 - [ ] Upstream/downstream impact verified?
 - [ ] Edge cases covered?
 - [ ] Evidence provided, not just claims?
+- [ ] Verification ran AFTER last change? (not stale output from before the fix)
 
 Failure to complete this checklist activates proactivity enforcement. "You said it's done — where's the evidence?"
 
